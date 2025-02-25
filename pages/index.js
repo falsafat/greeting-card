@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import html2canvas from "html2canvas";
 
 export default function RamadanGreeting() {
@@ -31,23 +29,21 @@ export default function RamadanGreeting() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <Button onClick={() => setGenerated(true)}>إنشاء البطاقة</Button>
+          <button className="px-4 py-2 bg-green-600 text-white rounded-lg" onClick={() => setGenerated(true)}>إنشاء البطاقة</button>
         </div>
       ) : (
         <div className="relative bg-white p-6 rounded-xl shadow-lg" id="greeting-card">
-          <Card className="p-6 flex flex-col items-center relative">
-            <CardContent className="text-center relative">
-              <img src="/image.png" alt="Ramadan" className="w-full h-auto" />
-              <p className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white text-lg font-bold drop-shadow-lg">
-                {name}
-              </p>
-            </CardContent>
-          </Card>
+          <div className="text-center relative">
+            <img src="/image.png" alt="Ramadan" className="w-full h-auto" />
+            <p className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white text-lg font-bold drop-shadow-lg">
+              {name}
+            </p>
+          </div>
           <div className="mt-4 flex justify-center space-x-2">
-            <Button onClick={handleDownload}>تحميل الصورة</Button>
-            <Button variant="outline" onClick={() => setGenerated(false)}>
+            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg" onClick={handleDownload}>تحميل الصورة</button>
+            <button className="px-4 py-2 bg-gray-400 text-white rounded-lg" onClick={() => setGenerated(false)}>
               تعديل الاسم
-            </Button>
+            </button>
           </div>
         </div>
       )}
