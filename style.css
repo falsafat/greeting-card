@@ -5,6 +5,7 @@
   font-style: normal;
 }
 
+/* تنسيق عام للصفحة */
 body {
   margin: 0;
   padding: 0;
@@ -14,10 +15,11 @@ body {
   text-align: center;
 }
 
+/* الحاوية الرئيسية */
 .container {
   margin: 20px auto;
   max-width: 400px;
-  padding: 10px; /* مساحة داخلية */
+  padding: 10px; /* مساحة داخلية بسيطة */
 }
 
 .container h1 {
@@ -29,21 +31,22 @@ body {
   margin-bottom: 10px;
 }
 
+/* حقل الاسم */
 #userName {
   width: 50%;
   max-width: 300px;
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 10px auto; /* توسيط وإضافة مسافة أسفله */
   padding: 10px;
   text-align: center;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc; /* إطار خفيف */
 }
 
-/* زر توليد الصورة */
+/* زر توليد البطاقة */
 #generateBtn {
   display: block;
-  margin: 20px auto 0 auto;
+  margin: 20px auto 0 auto; /* 20px من الأعلى, وتوسيطه أفقياً */
   padding: 12px 24px;
   background-color: #0d4d26;
   color: #fff;
@@ -59,19 +62,20 @@ body {
   background-color: #1c7d42;
 }
 
-/* عند عرض الصورة */
+/* قسم النتيجة (الصورة المولدة + الأزرار) */
 .result {
   margin-top: 20px;
-  display: none;
+  display: none; /* مخفي حتى توليد الصورة */
   text-align: center;
 }
 
-/* التحكم في حجم الكانفاس */
+/* التحكم في حجم الكانفاس (الصورة) */
 #greetingCanvas {
   max-width: 90%;
   height: auto;
   display: block;
   margin: 0 auto;
+  border: none;
 }
 
 /* زر التحميل */
@@ -89,5 +93,26 @@ body {
 }
 
 #downloadLink:hover {
+  background-color: #1c7d42;
+}
+
+/* زر المشاركة */
+#shareBtn {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 10px; /* مسافة جانبية عن زر التحميل */
+  background-color: #0d4d26;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: 'FSAlbertArabicBold', sans-serif;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#shareBtn:hover {
   background-color: #1c7d42;
 }
