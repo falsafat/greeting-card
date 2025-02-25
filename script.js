@@ -25,13 +25,13 @@ async function generateCard() {
   ctx.drawImage(backgroundImage, 0, 0);
 
   // إعدادات النص
-  ctx.font = "30px 'FSAlbertArabicBold'";
+  ctx.font = "40px 'FSAlbertArabicBold'";
   ctx.fillStyle = "#fff";
   ctx.textAlign = "center";
 
   // إحداثيات النص (يمكن تعديلها حسب الحاجة)
   const xPos = canvas.width / 2;
-  const yPos = canvas.height / 1.4;
+  const yPos = canvas.height / 1.2;
 
   // كتابة الاسم على الصورة
   ctx.fillText(userName, xPos, yPos);
