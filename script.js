@@ -85,8 +85,6 @@ async function shareImage() {
     try {
       await navigator.share({
         files: [file],
-        text: 'رمضان كريم!',
-        title: 'تهنئة رمضان',
       });
       console.log('تمت المشاركة بنجاح');
     } catch (error) {
