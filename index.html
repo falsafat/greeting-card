@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تهنئة رمضان</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body dir="rtl">
+  <div class="container">
+    <h1>رمضان كريم</h1>
+    <p>أدخل اسمك لتوليد بطاقة تهنئة</p>
+    <input type="text" id="userName" placeholder="اكتب اسمك هنا" />
+    <button id="generateBtn">توليد البطاقة</button>
+  </div>
+
+  <!-- سيتم عرض البطاقة النهائية هنا -->
+  <div class="result">
+    <canvas id="greetingCanvas"></canvas>
+    <a id="downloadLink" href="#" download="ramadan-greeting.png">تحميل الصورة</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
