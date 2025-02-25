@@ -36,11 +36,12 @@ body {
   width: 50%;
   max-width: 300px;
   display: block;
-  margin: 0 auto 10px auto; /* توسيط وإضافة مسافة أسفله */
+  margin: 0 auto 10px auto;
   padding: 10px;
   text-align: center;
   border-radius: 5px;
-  border: 1px solid #ccc; /* إطار خفيف */
+  border: 1px solid #ccc;
+  font-size: 16px; /* تأكد من أن الحجم لا يقل عن 16px */
 }
 
 /* زر توليد البطاقة */
