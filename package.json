@@ -1,5 +1,5 @@
 {
-  "name": "ramadan-greeting",
+  "name": "greeting-card",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
