@@ -17,10 +17,12 @@ body {
 .container {
   margin: 20px auto;
   max-width: 400px;
+  padding: 10px; /* مساحة داخلية */
 }
 
 .container h1 {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .container p {
@@ -28,22 +30,29 @@ body {
 }
 
 #userName {
-  width: 50%;        /* نسبة العرض بالنسبة لمساحة الحاوية */
-  max-width: 300px;  /* الحد الأقصى لعرض الحقل */
-  margin: 0 auto;    /* لتوسيط العنصر أفقياً */
+  width: 50%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto 10px auto;
   padding: 10px;
   text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 /* زر توليد الصورة */
 #generateBtn {
-  padding: 10px 20px;
+  display: block;
+  margin: 20px auto 0 auto;
+  padding: 12px 24px;
   background-color: #0d4d26;
   color: #fff;
   border: none;
   cursor: pointer;
   font-family: 'FSAlbertArabicBold', sans-serif;
-  font-size: 18px; /* حجم الخط للزر */
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 #generateBtn:hover {
@@ -54,7 +63,7 @@ body {
 .result {
   margin-top: 20px;
   display: none;
-  text-align: center; /* توسيط المحتوى */
+  text-align: center;
 }
 
 /* التحكم في حجم الكانفاس */
@@ -75,6 +84,8 @@ body {
   text-decoration: none;
   font-family: 'FSAlbertArabicBold', sans-serif;
   font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 #downloadLink:hover {
