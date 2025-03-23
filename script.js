@@ -1,5 +1,5 @@
 // مسار صورة الخلفية
-const backgroundSrc = 'images/ramadan-card.png';
+const backgroundSrc = 'images/card.png';
 
 window.onload = () => {
   const generateBtn = document.getElementById('generateBtn');
@@ -78,7 +78,7 @@ async function shareImage() {
   const blob = await response.blob();
 
   // إنشاء ملف من نوع image/png
-  const file = new File([blob], 'ramadan-greeting.png', { type: 'image/png' });
+  const file = new File([blob], 'greeting-card.png', { type: 'image/png' });
 
   // التحقق من إمكانية المشاركة
   if (navigator.canShare && navigator.canShare({ files: [file] })) {
