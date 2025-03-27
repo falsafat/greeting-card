@@ -45,16 +45,18 @@ async function generateCard() {
   // كتابة الاسم
   ctx.fillText(userName, xPos, yPos);
 
-  // Fire an event when an image is saved 
-  image.addEventListener('contextmenu', function(e) {
-  setTimeout(() => {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-          'event': 'image_saved',
-          'image_url': image.src
-      });
-  }, 0);
-});
+    // Fire an event when an image is saved
+    const canvas = document.getElementById('greetingCanvas'); // تعريف المتغير canvas
+
+    canvas.addEventListener('contextmenu', function(e) {
+        setTimeout(() => {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'image_saved',
+                'image_url': canvas.toDataURL("image/png") // الحصول على DataURL من canvas
+            });
+        }, 0);
+    });
   
   // إظهار رابط التحميل والنتيجة
   const downloadLink = document.getElementById('downloadLink');
