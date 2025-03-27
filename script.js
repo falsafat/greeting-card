@@ -45,6 +45,17 @@ async function generateCard() {
   // كتابة الاسم
   ctx.fillText(userName, xPos, yPos);
 
+  // Fire an event when an image is saved 
+  image.addEventListener('contextmenu', function(e) {
+  setTimeout(() => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+          'event': 'image_saved',
+          'image_url': image.src
+      });
+  }, 0);
+});
+  
   // إظهار رابط التحميل والنتيجة
   const downloadLink = document.getElementById('downloadLink');
   downloadLink.href = canvas.toDataURL("image/png");
