@@ -40,7 +40,7 @@ async function generateCard() {
 
     // إحداثيات النص (يمكن تعديلها حسب حاجتك)
     const xPos = canvas.width * 0.83;
-    const yPos = canvas.height * 0.89;
+    const yPos = canvas.height * 0.9;
 
     // كتابة الاسم
     ctx.fillText(userName, xPos, yPos);
