@@ -34,7 +34,7 @@ async function generateCard() {
     ctx.drawImage(backgroundImage, 0, 0);
 
     // إعدادات النص
-    ctx.font = "50px 'FSAlbertArabicBold'";
+    ctx.font = "45px 'FSAlbertArabicBold'";
     ctx.fillStyle = "#fff";
     ctx.textAlign = "center";
 
