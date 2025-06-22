@@ -1,9 +1,17 @@
-// مسار صورة الخلفية
-const backgroundSrc = 'images/card.png';
+// اسم صورة الخلفية الافتراضية
+const defaultBackground = 'card';
 
 window.onload = () => {
     const generateBtn = document.getElementById('generateBtn');
     generateBtn.addEventListener('click', generateCard);
+
+    // تشغيل التوليد عند الضغط على Enter
+    const userNameInput = document.getElementById('userName');
+    userNameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            generateCard();
+        }
+    });
 
     // زر المشاركة
     const shareBtn = document.getElementById('shareBtn');
@@ -20,11 +28,14 @@ async function generateCard() {
         return;
     }
 
+    const themeSelect = document.getElementById('themeSelect');
+    const selectedTheme = themeSelect ? themeSelect.value : defaultBackground;
+
     const canvas = document.getElementById('greetingCanvas');
     const ctx = canvas.getContext('2d');
 
     // تحميل خلفية البطاقة
-    const backgroundImage = await loadImage(backgroundSrc);
+    const backgroundImage = await loadImage(`images/${selectedTheme}.png`);
 
     // ضبط أبعاد الكانفاس لتطابق أبعاد الصورة
     canvas.width = backgroundImage.width;
