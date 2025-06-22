@@ -5,6 +5,13 @@ window.onload = () => {
     const generateBtn = document.getElementById('generateBtn');
     generateBtn.addEventListener('click', generateCard);
 
+    const nameInput = document.getElementById('userName');
+    nameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            generateCard();
+        }
+    });
+
     // زر المشاركة
     const shareBtn = document.getElementById('shareBtn');
     if (shareBtn) {
@@ -59,7 +66,11 @@ async function generateCard() {
     // إظهار رابط التحميل والنتيجة
     const downloadLink = document.getElementById('downloadLink');
     downloadLink.href = canvas.toDataURL("image/png");
-    document.querySelector('.result').style.display = 'block';
+
+    const resultDiv = document.querySelector('.result');
+    resultDiv.style.display = 'block';
+    // Fade in result for a smoother experience
+    setTimeout(() => { resultDiv.style.opacity = '1'; }, 50);
 }
 
 // دالة تحميل الصورة كـ Image
