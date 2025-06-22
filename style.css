@@ -10,9 +10,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'FSAlbertArabicBold', sans-serif;
-  background-color: #124745;
+  background: linear-gradient(135deg, #124745, #0d2e2c);
   color: #fff;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* الحاوية الرئيسية */
@@ -20,6 +24,11 @@ body {
   margin: 20px auto;
   max-width: 400px;
   padding: 10px; /* مساحة داخلية بسيطة */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
 }
 
 .container h1 {
@@ -33,7 +42,7 @@ body {
 
 /* حقل الاسم */
 #userName {
-  width: 50%;
+  width: 80%;
   max-width: 300px;
   display: block;
   margin: 0 auto 10px auto;
@@ -56,18 +65,25 @@ body {
   font-family: 'FSAlbertArabicBold', sans-serif;
   font-size: 18px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #generateBtn:hover {
   background-color: #1c7d42;
 }
 
+#generateBtn:active {
+  transform: scale(0.95);
+}
+
 /* قسم النتيجة (الصورة المولدة + الأزرار) */
 .result {
   margin-top: 20px;
+  margin-bottom: 40px; /* ترك مسافة أسفل الأزرار */
   display: none; /* مخفي حتى توليد الصورة */
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 /* التحكم في حجم الكانفاس (الصورة) */
@@ -77,6 +93,8 @@ body {
   display: block;
   margin: 0 auto;
   border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* زر التحميل */
@@ -90,11 +108,15 @@ body {
   font-family: 'FSAlbertArabicBold', sans-serif;
   font-size: 18px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #downloadLink:hover {
   background-color: #1c7d42;
+}
+
+#downloadLink:active {
+  transform: scale(0.95);
 }
 
 /* زر المشاركة */
@@ -111,9 +133,13 @@ body {
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #shareBtn:hover {
   background-color: #1c7d42;
+}
+
+#shareBtn:active {
+  transform: scale(0.95);
 }
