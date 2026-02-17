@@ -46,8 +46,8 @@ async function generateCard() {
     ctx.textAlign = "center";
 
     // إحداثيات النص (يمكن تعديلها حسب حاجتك)
-    const xPos = canvas.width * 0.83;
-    const yPos = canvas.height * 0.85;
+    const xPos = canvas.width * 0.5;
+    const yPos = canvas.height * 0.83;
 
     // كتابة الاسم
     ctx.fillText(userName, xPos, yPos);
