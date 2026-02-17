@@ -47,13 +47,13 @@ async function generateCard() {
 
     // إحداثيات النص (يمكن تعديلها حسب حاجتك)
     const xPos = canvas.width * 0.5;
-    const yPos = canvas.height * 0.83;
+    const yPos = canvas.height * 0.87;
 
     // كتابة الاسم
     ctx.fillText(userName, xPos, yPos);
 
     // Fire an event when an image is saved
-    canvas.addEventListener('contextmenu', function(e) {
+    canvas.addEventListener('contextmenu', function (e) {
         setTimeout(() => {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
