@@ -41,13 +41,24 @@ async function generateCard() {
     ctx.drawImage(backgroundImage, 0, 0);
 
     // إعدادات النص
-    ctx.font = "40px 'FSAlbertArabicBold'";
-    ctx.fillStyle = "#fff";
-    ctx.textAlign = "center";
+    ctx.fillStyle = "#124745";
+    ctx.textAlign = "right";
 
-    // إحداثيات النص (يمكن تعديلها حسب حاجتك)
-    const xPos = canvas.width * 0.5;
-    const yPos = canvas.height * 0.91;
+    // حجم الخط الديناميكي - يتأقلم مع طول الاسم
+    const baseFontSize = 28;
+    const maxTextWidth = canvas.width * 0.45; // أقصى عرض للنص
+    let fontSize = baseFontSize;
+    ctx.font = fontSize + "px 'FSAlbertArabicBold'";
+
+    // تقليص حجم الخط إذا كان النص أطول من المساحة المتاحة
+    while (ctx.measureText(userName).width > maxTextWidth && fontSize > 16) {
+        fontSize -= 1;
+        ctx.font = fontSize + "px 'FSAlbertArabicBold'";
+    }
+
+    // إحداثيات النص - الزاوية السفلى اليمنى (مقابل الهلال)
+    const xPos = canvas.width * 0.92;
+    const yPos = canvas.height * 0.82;
 
     // كتابة الاسم
     ctx.fillText(userName, xPos, yPos);
