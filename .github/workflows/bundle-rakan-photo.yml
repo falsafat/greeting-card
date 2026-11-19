@@ -1,0 +1,47 @@
+name: Bundle Yamaha YAS-209 photo
+on:
+  push:
+    branches: [rakan-auction-2026]
+    paths:
+      - 'rakan-auction/index.html'
+      - '.github/workflows/bundle-rakan-photo.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  bundle-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rakan-auction-2026
+          persist-credentials: true
+      - name: Download and verify actual YAS-209 product photo
+        shell: bash
+        run: |
+          mkdir -p rakan-auction/assets
+          IMAGE="rakan-auction/assets/yamaha-yas-209.jpg"
+          SOURCES=(
+            "https://www.av-online.hu/pictures/gallery/yamaha-yas-209_2022-03-19/big/Yamaha-YAS-209-soundbar_big.jpg"
+            "https://f.nooncdn.com/p/pzsku/ZF55748132A48467F235BZ/45/_/1779344453/30bc9bd1-a890-4d04-be2b-f6ac47d2b623.jpg"
+          )
+          for URL in "${SOURCES[@]}"; do
+            if curl -L -f --max-time 30 --retry 2 -A "Mozilla/5.0" "$URL" -o "$IMAGE"; then
+              if file -b --mime-type "$IMAGE" | grep -qx image/jpeg && test "$(wc -c < "$IMAGE")" -gt 10000; then
+                echo "Downloaded product photo: $(wc -c < "$IMAGE") bytes"
+                break
+              fi
+            fi
+            rm -f "$IMAGE"
+          done
+          test -f "$IMAGE"
+      - name: Commit photo to the site itself
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rakan-auction/assets/yamaha-yas-209.jpg
+          if ! git diff --cached --quiet; then
+            git commit -m "Bundle Yamaha YAS-209 product image locally"
+            git push origin HEAD:rakan-auction-2026
+          fi
